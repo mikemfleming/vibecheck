@@ -1,3 +1,48 @@
+# Vibe Check
+- [] Build for dark mode toggle
+- [] Inline styles --> styled components
+
+## User page
+A user can edit their profile. A user can add other users to their friends list. They can create new vibes, add existing vibes, remove existing vibes, and replace vibes. Having a vibe in their top 9 creates a subscription to updates on that vibe.
+
+```
+@user
+- id!
+- username!
+- avatar!
+    - photo and gif
+- bio!
+    - liberal wyswig
+- slug!
+    ex: /u/sphynxie
+- theme
+    - background style prefs
+    - border style prefs
+    - cursor style prefs
+- friends
+    - list of users
+```
+
+## Vibe page
+Users can vote on vibe content. Content needs to maintain a positive ratio. Users can add content to a vibe if it's in their top 9.
+
+```
+@vibe
+- id!
+- name!
+    - must be unique
+- slug!
+    - ex: /v/cello-in-a-storm-drain
+- description!
+    - tight wyswig
+- avatar!
+    - photo
+- followers
+    - users with this vibe in top 9
+- vibes
+    - liberal wysiwig
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
