@@ -1,10 +1,11 @@
-import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   useParams
 } from "react-router-dom";
+
+import Vibe from './pages/Vibe'
 
 import  {useDarkMode} from "./components/useDarkMode"
 import { ThemeProvider } from "styled-components";
@@ -40,17 +41,5 @@ function User() {
       </div>
     </ThemeProvider>
 
-  );
-}
-
-function Vibe() {
-  // We can use the `useParams` hook here to access
-  // the dynamic pieces of the URL.
-  let { vibename } = useParams();
-
-  return (
-    <div>
-      <h3>vibename: {vibename}</h3>
-    </div>
   );
 }
