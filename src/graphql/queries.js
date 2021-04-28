@@ -30,3 +30,67 @@ export const listTodos = /* GraphQL */ `
     }
   }
 `;
+export const getUser = /* GraphQL */ `
+  query GetUser($id: ID!) {
+    getUser(id: $id) {
+      id
+      name
+      vibes
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        vibes
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getVibe = /* GraphQL */ `
+  query GetVibe($id: ID!) {
+    getVibe(id: $id) {
+      id
+      name
+      slug
+      description
+      avatar
+      contributorIds
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listVibes = /* GraphQL */ `
+  query ListVibes(
+    $filter: ModelVibeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listVibes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        slug
+        description
+        avatar
+        contributorIds
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

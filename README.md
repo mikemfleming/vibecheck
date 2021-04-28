@@ -30,7 +30,7 @@ Users can vote on vibe content. Content needs to maintain a positive ratio. User
 @vibe
 - id!
 - name!
-    - must be unique
+    - must be unique https://medium.com/@fullstackpho/ensuring-usernames-are-unique-in-your-aws-amplify-app-6fff963274
 - slug!
     - ex: /v/cello-in-a-storm-drain
 - description!

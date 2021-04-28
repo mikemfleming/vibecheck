@@ -3,3 +3,19 @@ type Todo @model {
   name: String!
   description: String
 }
+
+type User @model {
+  id: ID!
+  name: String!
+  vibes: [ID]
+}
+
+# todo: add "moments"
+type Vibe @model {
+  id: ID!
+  name: String!
+  slug: String!
+  description: String!
+  avatar: String
+  contributorIds: [ID]
+}
