@@ -93,7 +93,6 @@ export const createVibe = /* GraphQL */ `
     createVibe(input: $input, condition: $condition) {
       id
       name
-      slug
       description
       avatar
       contributorIds
@@ -110,7 +109,6 @@ export const updateVibe = /* GraphQL */ `
     updateVibe(input: $input, condition: $condition) {
       id
       name
-      slug
       description
       avatar
       contributorIds
@@ -127,7 +125,6 @@ export const deleteVibe = /* GraphQL */ `
     deleteVibe(input: $input, condition: $condition) {
       id
       name
-      slug
       description
       avatar
       contributorIds

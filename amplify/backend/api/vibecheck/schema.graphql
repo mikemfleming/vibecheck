@@ -11,10 +11,9 @@ type User @model {
 }
 
 # todo: add "moments"
-type Vibe @model {
+type Vibe @model @key(fields: ["name"]) {
   id: ID!
   name: String!
-  slug: String!
   description: String!
   avatar: String
   contributorIds: [ID]

@@ -72,7 +72,6 @@ export const onCreateVibe = /* GraphQL */ `
     onCreateVibe {
       id
       name
-      slug
       description
       avatar
       contributorIds
@@ -86,7 +85,6 @@ export const onUpdateVibe = /* GraphQL */ `
     onUpdateVibe {
       id
       name
-      slug
       description
       avatar
       contributorIds
@@ -100,7 +98,6 @@ export const onDeleteVibe = /* GraphQL */ `
     onDeleteVibe {
       id
       name
-      slug
       description
       avatar
       contributorIds

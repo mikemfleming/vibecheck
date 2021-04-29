@@ -60,11 +60,10 @@ export const listUsers = /* GraphQL */ `
   }
 `;
 export const getVibe = /* GraphQL */ `
-  query GetVibe($id: ID!) {
-    getVibe(id: $id) {
+  query GetVibe($name: String!) {
+    getVibe(name: $name) {
       id
       name
-      slug
       description
       avatar
       contributorIds
@@ -75,15 +74,22 @@ export const getVibe = /* GraphQL */ `
 `;
 export const listVibes = /* GraphQL */ `
   query ListVibes(
+    $name: String
     $filter: ModelVibeFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listVibes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listVibes(
+      name: $name
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
         name
-        slug
         description
         avatar
         contributorIds
