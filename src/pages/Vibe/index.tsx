@@ -1,16 +1,35 @@
+import { useState, useEffect } from 'react'
 import {
     useParams
   } from "react-router-dom";
+import Amplify, { API, graphqlOperation } from 'aws-amplify'
+import awsExports from "../../aws-exports";
+import { getVibe } from '../../graphql/queries';
+Amplify.configure(awsExports);
+
 
 export default function Vibe() {
-      // We can use the `useParams` hook here to access
-  // the dynamic pieces of the URL.
-  // @ts-ignore
-  let { vibename } = useParams();
+  const { vibename } : { vibename: string } = useParams();
+  const [vibe, setVibe] = useState();
 
-  return (
-    <div>
-      <h3>vibename: {vibename}</h3>
-    </div>
-  );
+  async function getAndSetVibe(name: string) {
+    try {
+      const {
+        // @ts-ignore
+        data: { getVibe: currentVibe }
+      } = await API.graphql(graphqlOperation(getVibe, {name}))
+  
+      setVibe(currentVibe)
+    } catch(e) {
+      console.info('Error in get and set vibe')
+      console.error(e)
+    }
+  }
+
+  // getVibeById
+  useEffect(() => {
+    getAndSetVibe(vibename);
+  }, [vibename])
+
+  return <pre>{JSON.stringify(vibe, null, 4)}</pre>
 }
