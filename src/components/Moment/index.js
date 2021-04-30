@@ -1,6 +1,23 @@
 import { useState } from 'react'
 import styles from './Moment.module.css'
 
+import TextContent from './TextContent'
+import Image from './Image'
+import YouTube from './YouTube'
+
+const Content = ({moment}) => {
+    switch (moment.type) {
+        case 'text':
+            return <TextContent content={moment.content} />
+        case 'image':
+            return <Image content={moment.content} />
+        case 'youtube':
+            return <YouTube content={moment.content} />
+        default:
+            return <div>Content type not supported</div>
+    }
+}
+
 const Moment = ({ moment }) => {
     const [vote, setVote] = useState()
     const upvote = () => setVote(1)
@@ -13,7 +30,7 @@ const Moment = ({ moment }) => {
                 <p>type: {moment.type}</p>
             </header>
             <section>
-                <p>{moment.content}</p>
+                <Content moment={moment} />
             </section>
             <section>
                 <button onClick={upvote} className={styles.upvoteBtn}>This is good</button>
