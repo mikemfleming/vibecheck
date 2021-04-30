@@ -8,6 +8,8 @@ import './App.css'
 
 import Vibe from './pages/Vibe'
 
+import Nav from './components/Nav'
+
 // import  {useDarkMode} from "./components/useDarkMode"
 // import { ThemeProvider } from "styled-components";
 // import { GlobalStyles } from "./components/globalStyles";
@@ -21,10 +23,13 @@ import Vibe from './pages/Vibe'
 export default function App() {
   return (
     <Router>
-      <Switch>
-        {/* <Route path="/u/:username" children={<User />} /> */}
-        <Route path="/v/:vibename" children={<Vibe />} />
-      </Switch>
+      <Nav />
+      <main>
+        <Switch>
+          {/* <Route path="/u/:username" children={<User />} /> */}
+          <Route path="/v/:vibename" children={<Vibe />} />
+        </Switch>
+      </main>
     </Router>
   );
 }
