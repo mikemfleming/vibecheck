@@ -10,7 +10,6 @@ import Moment from '../../components/Moment'
 
 Amplify.configure(awsExports);
 
-// http://localhost:3000/v/cello-in-a-drain-pipe
 export default function VibePage() {
   const { vibename } = useParams();
   const { data, error } = useSWR(
