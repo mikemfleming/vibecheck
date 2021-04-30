@@ -95,7 +95,19 @@ export const createVibe = /* GraphQL */ `
       name
       description
       avatar
-      contributorIds
+      contributors
+      moments {
+        items {
+          id
+          vibeId
+          title
+          type
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -111,7 +123,19 @@ export const updateVibe = /* GraphQL */ `
       name
       description
       avatar
-      contributorIds
+      contributors
+      moments {
+        items {
+          id
+          vibeId
+          title
+          type
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -127,7 +151,67 @@ export const deleteVibe = /* GraphQL */ `
       name
       description
       avatar
-      contributorIds
+      contributors
+      moments {
+        items {
+          id
+          vibeId
+          title
+          type
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createMoment = /* GraphQL */ `
+  mutation CreateMoment(
+    $input: CreateMomentInput!
+    $condition: ModelMomentConditionInput
+  ) {
+    createMoment(input: $input, condition: $condition) {
+      id
+      vibeId
+      title
+      type
+      content
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateMoment = /* GraphQL */ `
+  mutation UpdateMoment(
+    $input: UpdateMomentInput!
+    $condition: ModelMomentConditionInput
+  ) {
+    updateMoment(input: $input, condition: $condition) {
+      id
+      vibeId
+      title
+      type
+      content
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteMoment = /* GraphQL */ `
+  mutation DeleteMoment(
+    $input: DeleteMomentInput!
+    $condition: ModelMomentConditionInput
+  ) {
+    deleteMoment(input: $input, condition: $condition) {
+      id
+      vibeId
+      title
+      type
+      content
       createdAt
       updatedAt
     }

@@ -74,7 +74,19 @@ export const onCreateVibe = /* GraphQL */ `
       name
       description
       avatar
-      contributorIds
+      contributors
+      moments {
+        items {
+          id
+          vibeId
+          title
+          type
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -87,7 +99,19 @@ export const onUpdateVibe = /* GraphQL */ `
       name
       description
       avatar
-      contributorIds
+      contributors
+      moments {
+        items {
+          id
+          vibeId
+          title
+          type
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -100,7 +124,58 @@ export const onDeleteVibe = /* GraphQL */ `
       name
       description
       avatar
-      contributorIds
+      contributors
+      moments {
+        items {
+          id
+          vibeId
+          title
+          type
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateMoment = /* GraphQL */ `
+  subscription OnCreateMoment {
+    onCreateMoment {
+      id
+      vibeId
+      title
+      type
+      content
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateMoment = /* GraphQL */ `
+  subscription OnUpdateMoment {
+    onUpdateMoment {
+      id
+      vibeId
+      title
+      type
+      content
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteMoment = /* GraphQL */ `
+  subscription OnDeleteMoment {
+    onDeleteMoment {
+      id
+      vibeId
+      title
+      type
+      content
       createdAt
       updatedAt
     }

@@ -66,7 +66,19 @@ export const getVibe = /* GraphQL */ `
       name
       description
       avatar
-      contributorIds
+      contributors
+      moments {
+        items {
+          id
+          vibeId
+          title
+          type
+          content
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -92,7 +104,43 @@ export const listVibes = /* GraphQL */ `
         name
         description
         avatar
-        contributorIds
+        contributors
+        moments {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getMoment = /* GraphQL */ `
+  query GetMoment($id: ID!) {
+    getMoment(id: $id) {
+      id
+      vibeId
+      title
+      type
+      content
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listMoments = /* GraphQL */ `
+  query ListMoments(
+    $filter: ModelMomentFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listMoments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        vibeId
+        title
+        type
+        content
         createdAt
         updatedAt
       }

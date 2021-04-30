@@ -10,11 +10,20 @@ type User @model {
   vibes: [ID]
 }
 
-# todo: add "moments"
 type Vibe @model @key(fields: ["name"]) {
   id: ID!
   name: String!
   description: String!
   avatar: String
-  contributorIds: [ID]
+  contributors: [ID]
+  moments: [Moment] @connection(keyName: "byVibe", fields: ["id"])
+}
+
+type Moment @model
+  @key(name: "byVibe", fields: ["vibeId", "content"]) {
+  id: ID!
+  vibeId: ID!
+  title: String!
+  type: String!
+  content: String!
 }

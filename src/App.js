@@ -4,6 +4,7 @@ import {
   Route,
   // useParams
 } from "react-router-dom";
+import './App.css'
 
 import Vibe from './pages/Vibe'
 
@@ -47,24 +48,3 @@ export default function App() {
 
 //   );
 // }
-
-// [
-//   {
-//       "id": "80c439ab-3305-46b5-8d6a-1a329bffc047",
-//       "name": "bingo",
-//       "description": "bongo",
-//       "avatar": null,
-//       "contributorIds": null,
-//       "createdAt": "2021-04-29T05:43:55.335Z",
-//       "updatedAt": "2021-04-29T05:43:55.335Z"
-//   },
-//   {
-//       "id": "1152bbc1-e3b1-4e08-a84e-91b3c884c104",
-//       "name": "bango",
-//       "description": "bongo",
-//       "avatar": null,
-//       "contributorIds": null,
-//       "createdAt": "2021-04-29T05:46:33.433Z",
-//       "updatedAt": "2021-04-29T05:46:33.433Z"
-//   }
-// ]
