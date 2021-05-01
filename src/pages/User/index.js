@@ -1,28 +1,29 @@
+import {
+  useParams
+} from "react-router-dom";
 
-import  {useDarkMode} from "../../components/useDarkMode"
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "../../components/globalStyles";
-import { lightTheme, darkTheme } from "../../components/Theme"
-import Toggle from "../../components/Toggler"
+import useSWR from 'swr'
 
+import { getUser } from '../../graphql/queries';
+import { API, graphqlOperation } from 'aws-amplify'
 
 function User() {
-  // We can use the `useParams` hook here to access
-  // the dynamic pieces of the URL.
-  let { username } = useParams();
-  const [theme, themeToggler] = useDarkMode()
+  const { username } = useParams();
+  const { data, error } = useSWR(
+    graphqlOperation(getUser, { name: username }),
+    () => API.graphql(graphqlOperation(getUser, { name: username }))
+  )
 
-  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const user = data?.data.getUser
+
+  if (error) return <pre>{JSON.stringify(error, null, 4)}</pre>
+
+  if (!user) return <div>...loading</div>
 
   return (
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyles/>
-      <div>
-        <Toggle theme={theme} toggleTheme={themeToggler} />
-        <h3>username: {username}</h3>
-      </div>
-    </ThemeProvider>
-
+    <div>
+      <h3>username: {username}</h3>
+    </div>
   );
 }
 

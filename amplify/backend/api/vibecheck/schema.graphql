@@ -1,6 +1,6 @@
-type User @model {
-  id: ID!
+type User @model @key(fields: ["name"]) {
   name: String!
+  bio: String!
   vibes: [ID]
 }
 

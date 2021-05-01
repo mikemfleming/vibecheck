@@ -29,7 +29,7 @@ export default function VibePage() {
         <Vibe vibe={vibe} />
       </section>
       <section>
-        {vibe.moments.items.map(m => <Moment moment={m} />)}
+        {vibe.moments.items.map(m => <Moment moment={m} key={m.id}/>)}
       </section>
     </>
   )

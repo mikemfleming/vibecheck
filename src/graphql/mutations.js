@@ -7,8 +7,8 @@ export const createUser = /* GraphQL */ `
     $condition: ModelUserConditionInput
   ) {
     createUser(input: $input, condition: $condition) {
-      id
       name
+      bio
       vibes
       createdAt
       updatedAt
@@ -21,8 +21,8 @@ export const updateUser = /* GraphQL */ `
     $condition: ModelUserConditionInput
   ) {
     updateUser(input: $input, condition: $condition) {
-      id
       name
+      bio
       vibes
       createdAt
       updatedAt
@@ -35,8 +35,8 @@ export const deleteUser = /* GraphQL */ `
     $condition: ModelUserConditionInput
   ) {
     deleteUser(input: $input, condition: $condition) {
-      id
       name
+      bio
       vibes
       createdAt
       updatedAt

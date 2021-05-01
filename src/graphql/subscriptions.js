@@ -4,8 +4,8 @@
 export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
-      id
       name
+      bio
       vibes
       createdAt
       updatedAt
@@ -15,8 +15,8 @@ export const onCreateUser = /* GraphQL */ `
 export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser {
     onUpdateUser {
-      id
       name
+      bio
       vibes
       createdAt
       updatedAt
@@ -26,8 +26,8 @@ export const onUpdateUser = /* GraphQL */ `
 export const onDeleteUser = /* GraphQL */ `
   subscription OnDeleteUser {
     onDeleteUser {
-      id
       name
+      bio
       vibes
       createdAt
       updatedAt
