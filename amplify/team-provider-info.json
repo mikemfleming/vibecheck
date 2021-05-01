@@ -20,6 +20,12 @@
           "appId": "d3rrue5qf463a3",
           "type": "manual"
         }
+      },
+      "function": {
+        "postSignUp": {
+          "deploymentBucketName": "amplify-vibecheck-dev-185546-deployment",
+          "s3Key": "amplify-builds/postSignUp-79635a39712f38696553-build.zip"
+        }
       }
     }
   }

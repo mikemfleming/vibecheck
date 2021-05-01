@@ -22,7 +22,11 @@ function User() {
 
   return (
     <div>
-      <h3>username: {username}</h3>
+      <h3>username: {user.name}</h3>
+      <p>bio: {user.bio}</p>
+      {user.vibes.map(v => (
+        <pre>{JSON.stringify(v, null, 4)}</pre>
+      ))}
     </div>
   );
 }

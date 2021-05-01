@@ -7,8 +7,6 @@ export const getUser = /* GraphQL */ `
       name
       bio
       vibes
-      createdAt
-      updatedAt
     }
   }
 `;
