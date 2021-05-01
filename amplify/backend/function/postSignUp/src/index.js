@@ -1,30 +1,37 @@
 /* Amplify Params - DO NOT EDIT
-	ENV
-	REGION
+  ENV
+  REGION
 Amplify Params - DO NOT EDIT */
 
-var aws = require('aws-sdk');
-var ddb = new aws.DynamoDB();
+const fetch = require('isomorphic-fetch')
 
-exports.handler = async (event, context) => {
-    try {
-        const date = new Date();
-        const params = {
-            Item: {
-                'name': {S: event.request.userAttributes.name},
-                'bio': {S: event.request.userAttributes.name},
-                'vibes': {L: []},
-                'createdAt': {S: date.toISOString()},
-                'updatedAt': {S: date.toISOString()},
-            },
-            TableName: 'User-fcfnjbcx5zhehfna5hmqs42npq-dev'
-        };
-
-        await ddb.putItem(params).promise();
-        
-        console.log("Success");
-    } catch (err) {
-        console.log("Error", err);
-        context.done(null, event);
+const createUser = username => JSON.stringify({
+  query: `
+    mutation MyMutation {
+      createUser(input: {bio: "", name: "${username}"}) {
+        createdAt
+      }
     }
+  `
+})
+
+exports.handler = async event => {
+  const body = createUser(event.userName)
+  try {
+    const response = await fetch('https://tgjjhsslgvhwllnipldbpf7abq.appsync-api.us-east-1.amazonaws.com/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': 'da2-lco6y5wdgjfuriphq7snr6kece'
+      },
+      body,
+    })
+
+    await response.json()
+
+    return event
+  } catch (err) {
+    console.log(`Error: failed to create user ${name}`, err);
+    throw err
+  }
 };

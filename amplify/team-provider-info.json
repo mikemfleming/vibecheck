@@ -24,7 +24,7 @@
       "function": {
         "postSignUp": {
           "deploymentBucketName": "amplify-vibecheck-dev-185546-deployment",
-          "s3Key": "amplify-builds/postSignUp-79635a39712f38696553-build.zip"
+          "s3Key": "amplify-builds/postSignUp-3555614a3054657a3954-build.zip"
         }
       }
     }

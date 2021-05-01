@@ -1,5 +1,22 @@
 {
-  "key1": "value1",
-  "key2": "value2",
-  "key3": "value3"
+  "version": "1",
+  "region": "us-east-1",
+  "userPoolId": "us-east-1_NLwYjSXzy",
+  "userName": "greerunit",
+  "callerContext": {
+    "awsSdkVersion": "aws-sdk-unknown-unknown",
+    "clientId": "2t74rf1fjm74l0tse4qpa654pi"
+  },
+  "triggerSource": "PostConfirmation_ConfirmSignUp",
+  "request": {
+    "userAttributes": {
+      "sub": "ee1d1901-1730-4c9d-a2cb-ac4dea35426f",
+      "email_verified": "true",
+      "cognito:user_status": "CONFIRMED",
+      "phone_number_verified": "false",
+      "phone_number": "+15122281420",
+      "email": "mike.fleming@hey.com"
+    }
+  },
+  "response": {}
 }

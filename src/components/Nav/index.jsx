@@ -2,15 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import styles from './Nav.module.css'
 import useDocumentScrollThrottled from '../../hooks/useDocumentScrollThrottled'
-import { Auth } from 'aws-amplify'
+import { AmplifySignOut } from '@aws-amplify/ui-react'
 
 const Nav = () => {
     const [shouldHideHeader, setShouldHideHeader] = useState(false);
     const [shouldShowShadow, setShouldShowShadow] = useState(false);
-    const signout = async () => {
-      await Auth.signOut()
-      window.location.reload()
-    }
 
     const MINIMUM_SCROLL = 80;
     const TIMEOUT_DELAY = 400;
@@ -41,7 +37,7 @@ const Nav = () => {
                 <Link to="/u/sphynxie">/u/sphynxie</Link>
               </li>
             </ul>
-            <button onClick={signout}>Sign Out</button>
+            <AmplifySignOut />
         </header>
     )
 }

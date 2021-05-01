@@ -23,8 +23,8 @@ function User() {
   return (
     <div>
       <h3>username: {user.name}</h3>
-      <p>bio: {user.bio}</p>
-      {user.vibes.map(v => (
+      <pre>{JSON.stringify(user, null, 4)}</pre>
+      {user.vibes && user.vibes.map(v => (
         <pre>{JSON.stringify(v, null, 4)}</pre>
       ))}
     </div>
